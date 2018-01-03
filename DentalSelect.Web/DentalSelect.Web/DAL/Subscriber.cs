@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace DentalSelect.Web.BL
+namespace DentalSelect.Web.DAL
 {
     public class Subscriber
     {
