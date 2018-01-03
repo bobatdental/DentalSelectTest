@@ -1,25 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace DentalSelect.Web.DAL
 {
+    /// <summary>
+    /// Container class that represents a Subscriber
+    /// </summary>
     public class Subscriber
     {
         public int Id { get; set; }
+
         [Required]
         [MaxLength(128)]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
         [Required]
         [MaxLength(128)]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
+
         [Required]
         [MaxLength(32)]
         public string State { get; set; }
+
         [Required]
         [MaxLength(16)]
         [Display(Name = "Zip Code")]
