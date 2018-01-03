@@ -9,6 +9,19 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+@* Search area for searching by zip *@
+@using (Html.BeginForm())
+{
+    <p>
+        <div>
+            Zip Code: @Html.TextBox("SearchString")
+            <input type="submit" value="Search" />
+            @Html.ActionLink("Clear Search", "Index", null, new { @class = "btn btn-default" })
+        </div>
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>

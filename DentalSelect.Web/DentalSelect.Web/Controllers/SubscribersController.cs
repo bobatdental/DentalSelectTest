@@ -15,9 +15,27 @@ namespace DentalSelect.Web.Controllers
         private DentalSelectWebContext db = new DentalSelectWebContext();
 
         // GET: Subscribers
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
-            return View(db.Subscribers.ToList());
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                return View
+                    (
+                        db.Subscribers
+                        .Where(s => s.ZipCode.Contains(searchString))
+                        .OrderBy(s => s.FirstName)
+                        .ToList()
+                    );
+            }
+            else
+            {
+                return View
+                    (
+                        db.Subscribers
+                        .OrderBy(s => s.FirstName)
+                        .ToList()
+                    );
+            }
         }
 
         // GET: Subscribers/Create
