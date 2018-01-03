@@ -61,11 +61,19 @@
                 @Html.ActionLink("Delete", "Index", null, new { @class = "btn btn-default" })
             </div>
         </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                Zip Code: <input type="text" id="searchString" />
+                <input type="button" id="btnSearch" value="Search" class="btn btn-default" />
+            </div>
+        </div>
+
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("View all Subscribers", "Index")
 </div>
 
 @section Scripts {
@@ -75,21 +83,30 @@
             // This function clears the form including validation errors
             $("#btnClear").button().click(function () {
                 // https://stackoverflow.com/questions/46830539/validation-error-messages-not-clearing
-                //get the form inside we are working - change selector to your form as needed
+                // Get the form inside we are working - change selector to your form as needed
                 var $form = $("form");
 
-                // get validator object
+                // Get validator object
                 var $validator = $form.validate();
 
-                // get errors that were created using jQuery.validate.unobtrusive
+                // Get errors that were created using jQuery.validate.unobtrusive
                 var $errors = $form.find(".field-validation-error span");
 
-                // trick unobtrusive to think the elements were succesfully validated
-                // this removes the validation messages
+                // Trick unobtrusive to think the elements were succesfully validated
+                // This removes the validation messages
                 $errors.each(function () { $validator.settings.success($(this)); })
 
-                // clear errors from validation
+                // Clear errors from validation
                 $validator.resetForm();
+            });
+
+            // This function is used to pass search criteria to index view...
+            $("#btnSearch").button().click(function () {
+                // Get the search 
+                var search = $('#searchString').val();
+                var url = '@Url.Action("Index", "Subscribers", new { searchString = "__search__" })';
+                // Open list with search criteria
+                window.location.href = url.replace('__search__', search);
             });
         })
     </script>
