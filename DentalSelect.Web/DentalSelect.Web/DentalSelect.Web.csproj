@@ -170,8 +170,6 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Subscribers\Create.cshtml" />
     <Content Include="Views\Subscribers\Delete.cshtml" />
-    <Content Include="Views\Subscribers\Details.cshtml" />
-    <Content Include="Views\Subscribers\Edit.cshtml" />
     <Content Include="Views\Subscribers\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
