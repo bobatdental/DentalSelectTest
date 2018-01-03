@@ -50,6 +50,9 @@
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
+
+                @* Clean button used to reset the form without a postback *@
+                <input id="btnClear" type="reset" value="Clean" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -61,4 +64,27 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+        $(document).ready(function () {
+            // This function clears the form including validation errors
+            $("#btnClear").button().click(function () {
+                // https://stackoverflow.com/questions/46830539/validation-error-messages-not-clearing
+                //get the form inside we are working - change selector to your form as needed
+                var $form = $("form");
+
+                // get validator object
+                var $validator = $form.validate();
+
+                // get errors that were created using jQuery.validate.unobtrusive
+                var $errors = $form.find(".field-validation-error span");
+
+                // trick unobtrusive to think the elements were succesfully validated
+                // this removes the validation messages
+                $errors.each(function () { $validator.settings.success($(this)); })
+
+                // clear errors from validation
+                $validator.resetForm();
+            });           
+        })
+</script>
 }
