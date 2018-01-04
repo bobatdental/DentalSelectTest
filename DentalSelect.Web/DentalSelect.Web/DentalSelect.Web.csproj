@@ -173,6 +173,7 @@
     <Content Include="Views\Subscribers\Create.cshtml" />
     <Content Include="Views\Subscribers\Delete.cshtml" />
     <Content Include="Views\Subscribers\Index.cshtml" />
+    <Content Include="Views\Subscribers\Report.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

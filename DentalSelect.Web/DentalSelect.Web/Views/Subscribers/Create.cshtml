@@ -57,8 +57,11 @@
                 @* Clean button used to reset the form without a postback *@
                 <input id="btnClear" type="reset" value="Clean" class="btn btn-default" />
 
-                @* Delete button using default action, not going to use partial or anything fanch at this point *@
+                @* Delete button using default action, not going to use partial or anything else at this point *@
                 @Html.ActionLink("Delete", "Index", null, new { @class = "btn btn-default" })
+
+                @* Report buttong using default action, not going to use partial or antything else at this point *@
+                @Html.ActionLink("Report", "Report", null, new { @class = "btn btn-default" })
             </div>
         </div>
 
@@ -71,10 +74,6 @@
 
     </div>
 }
-
-<div>
-    @Html.ActionLink("View all Subscribers", "Index")
-</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

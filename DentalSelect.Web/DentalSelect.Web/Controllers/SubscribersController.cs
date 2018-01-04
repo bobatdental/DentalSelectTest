@@ -4,7 +4,7 @@ using DentalSelect.Web.DAL;
 using DentalSelect.Web.BL;
 
 namespace DentalSelect.Web.Controllers
-{
+{   
     public class SubscribersController : Controller
     {
         // GET: Subscribers
@@ -13,6 +13,14 @@ namespace DentalSelect.Web.Controllers
             var subscribers = SubscriberHelper.GetSubscribers(searchString);
             return View(subscribers);
         }
+
+        // GET: Subscribers/Report
+        public ActionResult Report()
+        {
+            var subscribers = SubscriberHelper.GetSubscribers(null);
+            return View(subscribers);
+        }
+
 
         // GET: Subscribers/Create
         public ActionResult Create()

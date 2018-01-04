@@ -6,7 +6,7 @@ using System.Linq;
 namespace DentalSelect.Web.BL
 {    
     /// <summary>
-    /// Static helper class used for Business Logic
+    /// Static helper class used for Business Logic of Subscribers
     /// </summary>
     public static class SubscriberHelper
     {
