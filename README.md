@@ -7,7 +7,7 @@ So we have "Make it work, make it right, and make it fast"  This repo is at make
 
 # Things to be Aware of...
   * Test spec file and other system files found at root.
-  * Subscribers table SQL creation script found at root.
+  * Subscribers table SQL creation script found at root (Subscribers_Table_Creation_20180103.sql)
   * Business logic does not contain any logging, but the error handling and logging logic are in place to be extended.  
   * The DAL and BL logic could be put into seperate projects but was kept in one project for simplicity.  
 
