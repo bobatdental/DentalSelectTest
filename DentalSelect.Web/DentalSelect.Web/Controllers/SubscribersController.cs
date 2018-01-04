@@ -1,41 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
+﻿using System.Net;
 using System.Web.Mvc;
 using DentalSelect.Web.DAL;
+using DentalSelect.Web.BL;
 
 namespace DentalSelect.Web.Controllers
 {
     public class SubscribersController : Controller
     {
-        private DentalSelectWebContext db = new DentalSelectWebContext();
-
         // GET: Subscribers
         public ActionResult Index(string searchString)
         {
-            if (!String.IsNullOrEmpty(searchString))
-            {
-                return View
-                    (
-                        db.Subscribers
-                        .Where(s => s.ZipCode.Contains(searchString))
-                        .OrderBy(s => s.FirstName)
-                        .ToList()
-                    );
-            }
-            else
-            {
-                return View
-                    (
-                        db.Subscribers
-                        .OrderBy(s => s.FirstName)
-                        .ToList()
-                    );
-            }
+            var subscribers = SubscriberHelper.GetSubscribers(searchString);
+            return View(subscribers);
         }
 
         // GET: Subscribers/Create
@@ -53,11 +29,9 @@ namespace DentalSelect.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Subscribers.Add(subscriber);
-                db.SaveChanges();
+                SubscriberHelper.AddSubscriber(subscriber);
                 return RedirectToAction("Index");
             }
-
             return View(subscriber);
         }     
 
@@ -68,7 +42,7 @@ namespace DentalSelect.Web.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Subscriber subscriber = db.Subscribers.Find(id);
+            var subscriber = SubscriberHelper.FindSubscriber((int)id);
             if (subscriber == null)
             {
                 return HttpNotFound();
@@ -81,19 +55,8 @@ namespace DentalSelect.Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Subscriber subscriber = db.Subscribers.Find(id);
-            db.Subscribers.Remove(subscriber);
-            db.SaveChanges();
+            SubscriberHelper.DeleteSubscriber(id);
             return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

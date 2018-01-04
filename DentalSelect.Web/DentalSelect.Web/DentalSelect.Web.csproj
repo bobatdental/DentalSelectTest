@@ -129,6 +129,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BL\StateHelper.cs" />
+    <Compile Include="BL\SubscriberHelper.cs" />
     <Compile Include="Controllers\SubscribersController.cs" />
     <Compile Include="DAL\DentalSelectWebContext.cs" />
     <Compile Include="DAL\Subscriber.cs" />
