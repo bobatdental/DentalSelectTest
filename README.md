@@ -3,6 +3,9 @@ This repository contains an extremely simple MVC app that is the result of a tak
 
 # Exec Summary
 So we have "Make it work, make it right, and make it fast"  This repo is at make it work.  I kept things very simple with simple views and no dynmaic loading.  
+
+**The GUI and workflow are terrible, I had questions, but didn't think it was important to have a clean GUI as per spec.**
+
 **This is by no means PRODUCTION Ready!!!**
 
 # Things to be Aware of...
