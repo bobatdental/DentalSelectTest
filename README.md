@@ -10,3 +10,10 @@ So we have "Make it work, make it right, and make it fast"  This repo is at make
   * Subscribers table SQL creation script found at root.
   * Business logic does not contain any logging, but the error handling and logging logic are in place to be extended.  
   * The DAL and BL logic could be put into seperate projects but was kept in one project for simplicity.  
+
+# Steps to run
+ * Clone the repo.
+ * Restore NuGet Packages.
+ * Manually create Forms DB in local solution App_Data folder.
+ * Use Subscribers_Table_Creation_20180103.sql to create Subscribers table
+ * Run the app, you should be good to go :-)
